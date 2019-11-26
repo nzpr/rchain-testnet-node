@@ -10,6 +10,7 @@ fi
 : ${period:=60}
 if [[ -v contract ]]; then
 	export RD_OPTION_CONTRACT=$contract
+	export RD_OPTION_USE_RNODE_CLIENT=$use_rnode_client
 fi
 
 ret=0
