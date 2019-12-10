@@ -16,6 +16,7 @@ case "$RD_OPTION_STATE" in
 		cat >$conf_file <<-EOF
 		period=$RD_OPTION_PERIOD
 		contract=${RD_OPTION_CONTRACT@Q}
+		use_rnode_client=$RD_OPTION_USE_RNODE_CLIENT
 		EOF
 
 		systemctl unmask autopropose

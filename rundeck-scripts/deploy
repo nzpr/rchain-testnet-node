@@ -42,7 +42,22 @@ priv_key="f8d756125e35da03cc66d5b8411881e72ea57f65bd67800f650336d1a9f827fb"
 #	read priv_key pub_key <<<$(random_key)
 #fi
 
-echo "Deploying $contract with private key $priv_key"
-pushd $INSTALL_DIR/scripts/ > /dev/null
-exec python3 deploy.py $priv_key "$contract" scripts.conf
-popd > /dev/null
+if [[ $RD_OPTION_USE_RNODE_CLIENT == "True" ]]; then
+	echo "Deploying via rnode cli $contract with private key $priv_key"
+	bn=$(docker exec rnode ./bin/rnode show-blocks | grep blockNumber | head -1 | sed "s/blockNumber://g")
+	logcmd docker exec rnode ./bin/rnode \
+		$RD_OPTION_RNODE_LAUNCHER_ARGS \
+		-c /var/lib/rnode-static/rnode.conf \
+		deploy \
+		--phlo-limit 1000000000 \
+		--phlo-price 1 \
+		--private-key $priv_key \
+		--valid-after-block-number -1 \
+		$RD_OPTION_RNODE_DEPLOY_ARGS \
+		$contract
+else
+	echo "Deploying $contract with private key $priv_key"
+	pushd $INSTALL_DIR/scripts/ > /dev/null
+	exec python3 deploy.py $priv_key "$contract" scripts.conf
+	popd > /dev/null
+fi
