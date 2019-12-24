@@ -36,7 +36,7 @@ fi
 # REV address:
 # 11114pwJDzLcUTuLsbyJffAKLcnbYo154gcc7SRTHnTGY6rS5vgBt
 
-priv_key="f8d756125e35da03cc66d5b8411881e72ea57f65bd67800f650336d1a9f827fb"
+priv_key=$(cat /var/lib/rnode-static/deployer.sk)
 #priv_key="$RD_OPTION_DEPLOY_KEY"
 #if [[ -z "$priv_key" ]]; then
 #	read priv_key pub_key <<<$(random_key)

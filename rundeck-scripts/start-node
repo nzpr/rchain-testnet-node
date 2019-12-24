@@ -40,7 +40,38 @@ try_download_file()
 
 try_download_file "$RD_OPTION_WALLETS_FILE_URL" /var/lib/rnode/genesis/wallets.txt
 # This is the wallet to pay for deploys during autopropose
-echo "0x4f8237a7172bb5d57d18f25ebcf9e43f5b61e2bf,1000000000000000000,0" >> /var/lib/rnode/genesis/wallets.txt
+# We use one deployer key per validator to test block merging.
+
+#while read pk; do3
+#	sk=$(())
+#	echo "$sk,1000000000000000000,0" >> /var/lib/rnode/genesis/wallets.txt
+#done < /var/lib/rnode-static/validator-public-keys.txt
+echo "0xfa608d01b9a32e414119fe6a1d8f56e3b20d2397,1000000000000000000,0" >> /var/lib/rnode/genesis/wallets.txt
+echo "0xbd9fc3bea30df1d9c7a38033872e256b2063c5a9,1000000000000000000,0" >> /var/lib/rnode/genesis/wallets.txt
+echo "0xe11b274b2d96bd0b8d5ebf5ef5e2666e6b5c3921,1000000000000000000,0" >> /var/lib/rnode/genesis/wallets.txt
+echo "0xedb4755d30bf644a08b0415058e4daaedf8cfda5,1000000000000000000,0" >> /var/lib/rnode/genesis/wallets.txt
+echo "0x3117412c367a31db83e1d028739263f0e72de20f,1000000000000000000,0" >> /var/lib/rnode/genesis/wallets.txt
+
+case $(hostname) in
+    "node0")
+        echo "b384dc337765aa00b7a3340672a29f14842687a10788e4a1e8d5fd967b01215f" > /var/lib/rnode-static/deployer.sk
+        ;;
+    "node1")
+        echo "90f5e65556f88e3a3c1a79e5c8b0c456d3b7d0f74799e348c45818d553caf8c8" > /var/lib/rnode-static/deployer.sk
+        ;;
+    "node2")
+        echo "de45f70358251a01292a55bb45e41cad43f89de1070f86d67ed0422f0df03762" > /var/lib/rnode-static/deployer.sk
+        ;;
+    "node3")
+        echo "23d985221ad8fbd7088ede81172611dde0570561943384d3d6553e53c6661e79" > /var/lib/rnode-static/deployer.sk
+        ;;
+    "node4")
+        echo "8d7a53c94aed4373364f9a082fab87610ea5759e3f34f5c43e5227749e8f8db8" > /var/lib/rnode-static/deployer.sk
+        ;;
+    *)
+        ;; 
+esac
+
 try_download_file "$RD_OPTION_RNODE_OVERRIDE_CONF_URL" /var/lib/rnode/rnode.override.conf 600
 
 ln -sf /var/lib/rnode-static/node.*.pem /var/lib/rnode/
