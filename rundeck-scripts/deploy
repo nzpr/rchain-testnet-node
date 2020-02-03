@@ -23,20 +23,8 @@ fi
 
 # We will pay for executing a contract with this hardcoded wallet
 # ETH address SHOULD BE in genesis/wallets.txt file
-#
-# Private key:
-# f8d756125e35da03cc66d5b8411881e72ea57f65bd67800f650336d1a9f827fb
-#
-# Public key:
-# dba8d5ee12813f61c3fe875172915da39027d164f840e4fc83bf38312f371b4c07812549d9a5ad06ccd8aa40e03cecaf794357848298933db11445ee64c39b5f
-#
-# ETH Address:
-# 0x4f8237a7172bb5d57d18f25ebcf9e43f5b61e2bf
-#
-# REV address:
-# 11114pwJDzLcUTuLsbyJffAKLcnbYo154gcc7SRTHnTGY6rS5vgBt
 
-priv_key="f8d756125e35da03cc66d5b8411881e72ea57f65bd67800f650336d1a9f827fb"
+priv_key=$(cat /var/lib/rnode-static/deployer.sk)
 #priv_key="$RD_OPTION_DEPLOY_KEY"
 #if [[ -z "$priv_key" ]]; then
 #	read priv_key pub_key <<<$(random_key)

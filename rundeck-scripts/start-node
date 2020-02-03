@@ -40,7 +40,98 @@ try_download_file()
 
 try_download_file "$RD_OPTION_WALLETS_FILE_URL" /var/lib/rnode/genesis/wallets.txt
 # This is the wallet to pay for deploys during autopropose
-echo "0x4f8237a7172bb5d57d18f25ebcf9e43f5b61e2bf,1000000000000000000,0" >> /var/lib/rnode/genesis/wallets.txt
+# We use one deployer key per validator to test block merging.
+
+#while read pk; do3
+#	sk=$(())
+#	echo "$sk,1000000000000000000,0" >> /var/lib/rnode/genesis/wallets.txt
+#done < /var/lib/rnode-static/validator-public-keys.txt
+echo "308ec641584F7023ba501df8D352FF237B2894b1,1000000000000000000,0" >> /var/lib/rnode/genesis/wallets.txt
+echo "479be04F42A070F90149ce9e120c2A1919B87e82,1000000000000000000,0" >> /var/lib/rnode/genesis/wallets.txt
+echo "fC4e24604A4909EF4BA71A5c731bA96023D0C58f,1000000000000000000,0" >> /var/lib/rnode/genesis/wallets.txt
+echo "9c41d80AAb8706881AF13628DC24f07579Ee041c,1000000000000000000,0" >> /var/lib/rnode/genesis/wallets.txt
+echo "2D6167210f68e3DF5FE6b850296ed2C9EdD61977,1000000000000000000,0" >> /var/lib/rnode/genesis/wallets.txt
+echo "1266e051247D8E174758b6a225264d97B288Fa81,1000000000000000000,0" >> /var/lib/rnode/genesis/wallets.txt
+echo "2BE25b922BeE4A3aBdAa0a36a4f30C475af21233,1000000000000000000,0" >> /var/lib/rnode/genesis/wallets.txt
+echo "C9844E6CB546D5883366ffc5C27Df7fE528D299A,1000000000000000000,0" >> /var/lib/rnode/genesis/wallets.txt
+echo "D68c2A023683f1640a89351fe9fe8639bE935674,1000000000000000000,0" >> /var/lib/rnode/genesis/wallets.txt
+echo "Ce1349512Fb33116a1c85a7d2e9ecA2C6F9625FF,1000000000000000000,0" >> /var/lib/rnode/genesis/wallets.txt
+echo "4f6470e48afbbdb590e976658abC1d6Fa661D457,1000000000000000000,0" >> /var/lib/rnode/genesis/wallets.txt
+echo "95c69be0F44FD0B9e9f8bB5a4B5F9627F15AC649,1000000000000000000,0" >> /var/lib/rnode/genesis/wallets.txt
+echo "47283796230aFD8be53e003fBFF2746C66cef4a5,1000000000000000000,0" >> /var/lib/rnode/genesis/wallets.txt
+echo "C8AAbAAFc036ff6Ef13dF9fF1995d34f2005Ba0d,1000000000000000000,0" >> /var/lib/rnode/genesis/wallets.txt
+echo "D9FCa89D6590F54734a4840828874f1A5E7013F0,1000000000000000000,0" >> /var/lib/rnode/genesis/wallets.txt
+echo "30AfBBae4C6d794964DD54283B9F65FbF383F051,1000000000000000000,0" >> /var/lib/rnode/genesis/wallets.txt
+echo "aBB350ACA26af929aE9B6912a55F69997888B6BA,1000000000000000000,0" >> /var/lib/rnode/genesis/wallets.txt
+echo "bf1E1bE2d58C26B69003b8d63D349b44b0809F51,1000000000000000000,0" >> /var/lib/rnode/genesis/wallets.txt
+echo "d2Dfd4211bfd377400D144d35982D47D6d6fd1b5,1000000000000000000,0" >> /var/lib/rnode/genesis/wallets.txt
+echo "a9a67367CC7c306BF9415bBfc1b606f378de2b11,1000000000000000000,0" >> /var/lib/rnode/genesis/wallets.txt
+
+case $(hostname) in
+    "node0")
+        echo "0110a3b8e9de821cdb305785fed2a19f36413577b2cd4452736ddacbe0656bba" > /var/lib/rnode-static/deployer.sk
+        ;;
+	"node1")
+        echo "573581921a70bf32580c49614e847ac4b7cebd298ece758707df14cee34e003e" > /var/lib/rnode-static/deployer.sk
+        ;;
+	"node2")
+        echo "26f6939e05b1eedebd2b23d61902d0f5a145a13d4cbb76ed8762df5f64bc2003" > /var/lib/rnode-static/deployer.sk
+        ;;
+	"node3")
+        echo "74403979e0dc14a1be9ecea5a956075b7274a8e0054f70e9d8e80a6951be7fda" > /var/lib/rnode-static/deployer.sk
+        ;;
+	"node4")
+        echo "eb7eab8512361a301c07efa3195b8ffc8c17e55b18f5df7f3e1e8230e4f2413e" > /var/lib/rnode-static/deployer.sk
+        ;;
+	"node5")
+        echo "ff4566482c3df328256a503e4f99df4a0a120c12523293546284f1ef30d7cf4b" > /var/lib/rnode-static/deployer.sk
+        ;;
+	"node6")
+        echo "5329d598b0bd84c20c6c6be0adaf9860c013aa502ad2514421407dd21cf7cb02" > /var/lib/rnode-static/deployer.sk
+        ;;
+	"node7")
+        echo "21f811d96dd4efd6567e8f6a39e6163159e64fe538764168f45cc630513922c2" > /var/lib/rnode-static/deployer.sk
+        ;;
+	"node8")
+        echo "c71cd95d6ebc5df04087c762b7882839e23dae8222d024c40fe0e96c42dc88c3" > /var/lib/rnode-static/deployer.sk
+        ;;
+	"node9")
+        echo "bac5a0b7093ef7fab7828e63614b6d6624807ca733bec003a6312035a0e8d947" > /var/lib/rnode-static/deployer.sk
+        ;;
+	"node10")
+        echo "895ea6487b1eb4ca3941ca257a20d7698cf5a7838fd691fb6d3293df251ca3d1" > /var/lib/rnode-static/deployer.sk
+        ;;
+	"node11")
+        echo "2336eacdc265321b2e129eee9c6aed574fe97291539f02aecf13b1c506a8306a" > /var/lib/rnode-static/deployer.sk
+        ;;
+	"node12")
+        echo "00da6e5d2c7c16e19be35313cffad23dd396149793aa111f83b04cc08bd3eb18" > /var/lib/rnode-static/deployer.sk
+        ;;
+	"node13")
+        echo "7839652ca6baedba7b46efa34a3b5675e3353d8fb7a4ee40d38151f3b980b2b7" > /var/lib/rnode-static/deployer.sk
+        ;;
+	"node14")
+        echo "a2282b2caf2f988b55cbd6ab89cbecf8725384207ea14358d09a1ad7936ff2a1" > /var/lib/rnode-static/deployer.sk
+        ;;
+	"node15")
+        echo "97e0bc1569569e2b08a5e483430dddf34da65dce30c72e5b81752ab6a9886fa4" > /var/lib/rnode-static/deployer.sk
+        ;;
+	"node16")
+        echo "c1f1e1648e66c8e3428d72248b91bbb9882e767f7c30c5a1aa54d642b80cde4f" > /var/lib/rnode-static/deployer.sk
+        ;;
+	"node17")
+        echo "3c5841bb3cc8979a30762efda73e433e83592ccfac3d30dd69e6ec6ee473f1a3" > /var/lib/rnode-static/deployer.sk
+        ;;
+	"node18")
+        echo "33a6cbc3ffa227dfe1e4019c335ee0f2108db38ab612aec6822e957ed0fb1178" > /var/lib/rnode-static/deployer.sk
+        ;;
+	"node19")
+        echo "db32b73bc7343ffbe0be4b4adbfd6daeaf48883810f2a4be62383c7863b41c12" > /var/lib/rnode-static/deployer.sk
+        ;;
+    *)
+        ;;
+esac
+
 try_download_file "$RD_OPTION_RNODE_OVERRIDE_CONF_URL" /var/lib/rnode/rnode.override.conf 600
 
 ln -sf /var/lib/rnode-static/node.*.pem /var/lib/rnode/
