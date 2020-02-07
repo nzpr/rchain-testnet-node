@@ -111,6 +111,10 @@ if [[ -n "$GIT_CRYPT_KEY_FILE" ]]; then
 	( umask 077 && git-crypt unlock $GIT_CRYPT_KEY_FILE )
 fi
 
+echo $REPO_DIR/rundeck-scripts/start-node1 > $REPO_DIR/rundeck-scripts/start-node
+echo $REPO_DIR/rundeck-scripts/start-node2.deployer_keys >> $REPO_DIR/rundeck-scripts/start-node
+echo $REPO_DIR/rundeck-scripts/start-node3 >> $REPO_DIR/rundeck-scripts/start-node
+
 # Install Cron job
 
 if [[ ! $cron_symlink -ef update-run-setup ]]; then

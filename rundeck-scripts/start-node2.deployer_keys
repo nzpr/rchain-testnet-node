@@ -1,0 +1,65 @@
+# PROVIDE HERE KEYS FOR DEPLOYS
+case $(hostname) in
+    "node0")
+        echo "NODE_0_DEPLOYER_KEY" > /var/lib/rnode-static/deployer.sk
+        ;;
+	"node1")
+        echo "NODE_1_DEPLOYER_KEY" > /var/lib/rnode-static/deployer.sk
+        ;;
+	"node2")
+        echo "NODE_2_DEPLOYER_KEY" > /var/lib/rnode-static/deployer.sk
+        ;;
+	"node3")
+        echo "NODE_3_DEPLOYER_KEY" > /var/lib/rnode-static/deployer.sk
+        ;;
+	"node4")
+        echo "NODE_4_DEPLOYER_KEY" > /var/lib/rnode-static/deployer.sk
+        ;;
+	"node5")
+        echo "NODE_5_DEPLOYER_KEY" > /var/lib/rnode-static/deployer.sk
+        ;;
+	"node6")
+        echo "NODE_6_DEPLOYER_KEY" > /var/lib/rnode-static/deployer.sk
+        ;;
+	"node7")
+        echo "NODE_7_DEPLOYER_KEY" > /var/lib/rnode-static/deployer.sk
+        ;;
+	"node8")
+        echo "NODE_8_DEPLOYER_KEY" > /var/lib/rnode-static/deployer.sk
+        ;;
+	"node9")
+        echo "NODE_9_DEPLOYER_KEY" > /var/lib/rnode-static/deployer.sk
+        ;;
+	"node10")
+        echo "NODE_10_DEPLOYER_KEY" > /var/lib/rnode-static/deployer.sk
+        ;;
+	"node11")
+        echo "NODE_11_DEPLOYER_KEY" > /var/lib/rnode-static/deployer.sk
+        ;;
+	"node12")
+        echo "NODE_12_DEPLOYER_KEY" > /var/lib/rnode-static/deployer.sk
+        ;;
+	"node13")
+        echo "NODE_13_DEPLOYER_KEY" > /var/lib/rnode-static/deployer.sk
+        ;;
+	"node14")
+        echo "NODE_14_DEPLOYER_KEY" > /var/lib/rnode-static/deployer.sk
+        ;;
+	"node15")
+        echo "NODE_15_DEPLOYER_KEY" > /var/lib/rnode-static/deployer.sk
+        ;;
+	"node16")
+        echo "NODE_16_DEPLOYER_KEY" > /var/lib/rnode-static/deployer.sk
+        ;;
+	"node17")
+        echo "NODE_17_DEPLOYER_KEY" > /var/lib/rnode-static/deployer.sk
+        ;;
+	"node18")
+        echo "NODE_18_DEPLOYER_KEY" > /var/lib/rnode-static/deployer.sk
+        ;;
+	"node19")
+        echo "NODE_18_DEPLOYER_KEY" > /var/lib/rnode-static/deployer.sk
+        ;;
+    *)
+        ;;
+esac

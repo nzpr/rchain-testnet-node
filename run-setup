@@ -47,19 +47,10 @@ popd >/dev/null
 
 # config file for python scripts
 echo "influx_host: perf-bootstrap.c.developer-222401.internal" > scripts/scripts.conf
-case "$PROFILE" in
-"sandboxnet")
-    echo "influx_port: 8093" >> scripts/scripts.conf
-    ;;
-"testnet")
-    echo "influx_port: 8090" >> scripts/scripts.conf
-    ;;
-*)
-    ;;
-esac
+echo "influx_port: 8093" >> scripts/scripts.conf
 
 
-network_dir="node-files${PROFILE:+.$PROFILE}"
+network_dir="rshard"
 node_dir=$network_dir/$(hostname)
 
 install -C -m644 collectd.conf -t /etc/collectd/
