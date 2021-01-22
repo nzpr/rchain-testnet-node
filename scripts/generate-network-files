@@ -37,7 +37,7 @@ for i in $(seq 0 $((count-1))); do
 	host=node$i
 	node_dir="$out_dir/$host"
 	mkdir -p "$node_dir"
-	$scripts_dir/generate-node-files $host.$domain "$node_dir"
+	$scripts_dir/generate-node-files $host.$domain "$node_dir" "genesis_vaults.txt"
 done
 
 bootstrap_id="$($scripts_dir/pem-key-to-node-id $out_dir/node0/node.key.pem)"

@@ -7,28 +7,34 @@ from pathlib import Path
 import lib_rchain_key
 import lib_rnode_tls
 
-if len(sys.argv) != 3:
-    print(f'Usage: {sys.argv[0]} <hostname> <out-dir>', file=sys.stderr)
+if len(sys.argv) != 4:
+    print(f'Usage: {sys.argv[0]} <hostname> <out-dir> <genesis_vaults_fil3e_path>', file=sys.stderr)
     sys.exit(1)
 
 hostname = sys.argv[1]
 out_dir = Path(sys.argv[2])
+wallets_file = Path(sys.argv[3])
 
 ######################################################################
 # Generate config
 
 key, pub_key = lib_rchain_key.generate_key_pair_hex()
+sk, pk, rev, eth = lib_rchain_key.generate_deployer_data()
 tls_key, tls_cert, node_id = lib_rnode_tls.generate_node_tls_key_cert_id()
 
+
+
 conf_public = {
-    'rnode': {
+        'dev-mode': 'true',
+        'dev': {
+            'deployer-private-key': sk
+        },
         'casper': {
             'validator-public-key': pub_key
         },
-        'server': {
+        'protocol-server': {
             'host': hostname
         }
-    }
 }
 conf_private = {'rnode': {'casper': {'validator-private-key': key}}}
 
@@ -45,6 +51,10 @@ conf_dir.mkdir()
 conf_private_file.touch(mode=0o600)
 conf_private_file.write_text(json.dumps(conf_private, indent=4))
 conf_public_file.write_text(json.dumps(conf_public, indent=4))
+wallets_file.touch(mode=0o600)
+f = open(wallets_file, "a")
+f.write(eth + ', 10000000000000000\n')
+f.close()
 tls_key_file.touch(mode=0o600)
 tls_key_file.write_text(tls_key)
 tls_cert_file.write_text(tls_cert)

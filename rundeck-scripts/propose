@@ -1,8 +1,0 @@
-#!/bin/bash
-set -e
-source "$(dirname $0)/functions"
-
-echo "Proposing..."
-pushd $INSTALL_DIR/scripts/ > /dev/null
-exec python3 propose.py scripts.conf
-popd > /dev/null
